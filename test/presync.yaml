@@ -1,0 +1,25 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  generateName: schema-migrate-
+  annotations:
+    argocd.argoproj.io/hook: PreSync
+spec:
+  template:
+    spec:
+      containers:
+        - name: dingtalk
+          image: curlimages/curl
+          command:
+            - "curl"
+            - "-X"
+            - "POST"
+            - "https://oapi.dingtalk.com/robot/send?access_token=f70471e5dfaad81797597b73b4372e5d455cf55ffd5dfc36493db9ddf29746f7"
+            - "-H"
+            - "'cache-control: no-cache'"
+            - "-H"
+            - "'content-type: application/json'"
+            - "-d"
+            - "'{\"msgtype\": \"text\", \"text\": {\"content\": \"Pre sync test ArgoCD\"}}'"
+      restartPolicy: Never
+  backoffLimit: 2
