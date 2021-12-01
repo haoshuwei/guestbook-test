@@ -16,10 +16,10 @@ spec:
             - "POST"
             - "https://oapi.dingtalk.com/robot/send?access_token=f70471e5dfaad81797597b73b4372e5d455cf55ffd5dfc36493db9ddf29746f7"
             - "-H"
-            - "'cache-control: no-cache'"
+            - "cache-control: no-cache"
             - "-H"
-            - "'content-type: application/json'"
+            - "content-type: application/json"
             - "-d"
-            - "'{\"msgtype\": \"text\", \"text\": {\"content\": \"Pre sync test ArgoCD\"}}'"
+            - "{\"msgtype\": \"text\", \"text\": {\"content\": \"Pre sync test ArgoCD\"}}"
       restartPolicy: Never
   backoffLimit: 2
